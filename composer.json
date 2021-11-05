@@ -1,0 +1,39 @@
+{
+    "name": "marekskopal/typo3-core",
+    "version": "10.4.0",
+    "type": "typo3-cms-extension",
+    "description": "Core plugin for my TYPO3 CMS webs",
+    "keywords": [
+        "TYPO3"
+    ],
+    "homepage": "https://marekskopal.cz",
+    "authors": [
+        {
+            "name": "Marek Skopal",
+            "role": "Developer",
+            "homepage": "https://marekskopal.cz"
+        }
+    ],
+    "license": ["GPL-2.0-or-later"],
+    "require": {
+        "typo3/cms-core": "^10.4.10",
+        "typo3/cms-fluid-styled-content": "^10.4",
+        "typo3/cms-rte-ckeditor": "^10.4",
+        "netresearch/rte-ckeditor-image": "^10.1",
+        "georgringer/news": "^8.1",
+        "gridelementsteam/gridelements": "^10.2",
+        "laxap/bootstrap-grids": "^2.2",
+        "dirkpersky/typo3-rte-ckeditor-fontawesome": "^10.3",
+        "tpwd/ke_search": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Skopal\\MsCore\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "ms_core"
+        }
+    }
+}

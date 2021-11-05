@@ -1,0 +1,50 @@
+# Load default processing options
+imports:
+    - { resource: "EXT:ms_core/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:ms_core/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:ms_core/Configuration/RTE/Editor/Plugins.yaml" }
+    - { resource: "EXT:rte_ckeditor_image/Configuration/RTE/Plugin.yaml" }
+    - { resource: "EXT:rte_ckeditor_fontawesome/Configuration/RTE/PluginFA5.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    stylesSet:
+      - { name: "H1", element: ['a', 'p'] , attributes: { class: "h1"} }
+      - { name: "H2", element: ['a', 'p'] , attributes: { class: "h2"} }
+      - { name: "H3", element: ['a', 'p'] , attributes: { class: "h3"} }
+      - { name: "H4", element: ['a', 'p'] , attributes: { class: "h4"} }
+      - { name: "H5", element: ['a', 'p'] , attributes: { class: "h5"} }
+      - { name: "H6", element: ['a', 'p'] , attributes: { class: "h6"} }
+      - { name: "Icon", element: ['a', 'p', 'span', 'div'] , attributes: { class: "icon"} }
+    
+    format_tags: "p;h1;h2;h3;h4;h5;pre"
+
+    toolbarGroups:
+      - { name: styles, groups: [ format, styles ] }
+      - { name: basicstyles, groups: [ basicstyles ] }
+      - { name: paragraph, groups: [ list, indent, blocks, align ] }
+      - { name: links, groups: [ links ] }
+      - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+      - { name: editing, groups: [ spellchecker ] }
+      - { name: insert, groups: [ insert ] }
+      - { name: tools, groups: [ table, specialchar ] }
+      - { name: document, groups: [ mode ] }
+
+    justifyClasses:
+      - text-left
+      - text-center
+      - text-right
+      - text-justify
+
+    extraPlugins:
+      - justify
+      - stylesheetparser
+
+    removePlugins: null
+
+    removeButtons:
+      - Anchor
+      - Underline
+      - Strike

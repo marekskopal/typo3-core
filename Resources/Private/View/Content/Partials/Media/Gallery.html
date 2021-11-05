@@ -1,0 +1,45 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+	  xmlns:ms="http://typo3.org/ns/Skopal/MsCore/ViewHelpers"
+	  data-namespace-typo3-fluid="true"
+>
+
+<f:if condition="{gallery.rows}">
+	<div class="lightgallery gallery{f:if(condition: data.imageborder, then: ' border')}" data-xs-columns="2" data-sm-columns="{f:if(condition:'gallery.count.columns > 2', then:'3', else: '2')}" data-md-columns="{gallery.count.columns}" data-count-images="{gallery.count.files}">
+		<div class="lightgallery-content">
+			<f:for each="{gallery.rows}" as="row">
+				<div class="row{f:if(condition: '{gallery.position.horizontal} == \'center\'', then: ' justify-content-center')} mx--2">
+					<f:for each="{row.columns}" as="column">
+						<f:if condition="{column.media}">
+							<f:switch expression="{gallery.count.columns}">
+								<f:case value="1">
+									<div class="col px-2">
+										<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+									</div>
+								</f:case>
+								<f:case value="2">
+									<div class="col px-2" style="{ms:flexImage(row:row.columns, image:column)}">
+										<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+									</div>
+								</f:case>
+								<f:case value="3">
+									<div class="col px-2" style="{ms:flexImage(row:row.columns, image:column)}">
+										<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+									</div>
+								</f:case>
+								<f:case value="4">
+									<div class="col px-2" style="{ms:flexImage(row:row.columns, image:column)}">
+										<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
+									</div>
+								</f:case>
+							</f:switch>
+						</f:if>
+					</f:for>
+				</div>
+			</f:for>
+		</div>
+		<div class="visible-xs d-block d-sm-none"></div>
+		<div class="visible-sm d-none d-sm-block d-md-none"></div>
+		<div class="visible-md d-none d-md-block"></div>
+	</div>
+</f:if>
+</html>

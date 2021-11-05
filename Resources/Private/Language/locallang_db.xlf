@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-08-25T00:00:00Z" product-name="ms_core">
+		<header/>
+		<body>
+
+			<trans-unit id="tt_content.section_pallete">
+				<source>Section</source>
+			</trans-unit>
+			<trans-unit id="tt_content.section_hash">
+				<source>Section hash</source>
+			</trans-unit>
+			<trans-unit id="tt_content.section_sorting">
+				<source>Section sorting</source>
+			</trans-unit>
+        </body>
+    </file>
+</xliff>
