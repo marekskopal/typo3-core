@@ -124,14 +124,4 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
         $fileUid = $this->cObj->parameters['data-htmlarea-file-uid'] ?? null;
         return $fileUid === null;
     }
-
-    /**
-     * @return \TYPO3\CMS\Core\Log\Logger
-     */
-    private function getLogger()
-    {
-        /** @var $logManager LogManager */
-        $logManager = GeneralUtility::makeInstance(LogManager::class);
-        return $logManager->getLogger(get_class($this));
-    }
 }
