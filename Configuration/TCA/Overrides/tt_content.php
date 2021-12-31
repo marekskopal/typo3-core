@@ -117,3 +117,5 @@ $GLOBALS['TCA']['tt_content']['types']['image']['showitem'] = '
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,rowDescription,
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended
 ';
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--palette--;;headers', 'form_formframework', 'replace:--palette--;;header');
