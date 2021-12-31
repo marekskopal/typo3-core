@@ -13,6 +13,14 @@ $fields = [
             'size' => 30,
         ]
     ],
+    'section_title' => [
+        'exclude' => true,
+        'label' => $llPath . ':tt_content.section_title',
+        'config' => [
+            'type' => 'input',
+            'size' => 30,
+        ]
+    ],
     'section_sorting' => [
         'exclude' => true,
         'label' => $llPath . ':tt_content.section_sorting',
@@ -25,7 +33,7 @@ $fields = [
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $fields);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'section_pallete', 'section_hash,section_sorting');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'section_pallete', 'section_hash,section_title,section_sorting');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--palette--;' . $llPath . ':tt_content.section_pallete;section_pallete', '', 'after:sectionIndex');
 
 

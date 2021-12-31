@@ -12,6 +12,10 @@
 				<source>Section hash</source>
 				<target>Hash sekce</target>
 			</trans-unit>
+			<trans-unit id="tt_content.section_title">
+				<source>Section title</source>
+				<target>Titulek sekce</target>
+ 			</trans-unit>
 			<trans-unit id="tt_content.section_sorting">
 				<source>Section sorting</source>
 				<target>Řazení sekce</target>

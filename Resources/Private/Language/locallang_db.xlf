@@ -10,6 +10,9 @@
 			<trans-unit id="tt_content.section_hash">
 				<source>Section hash</source>
 			</trans-unit>
+			<trans-unit id="tt_content.section_title">
+				<source>Section title</source>
+			</trans-unit>
 			<trans-unit id="tt_content.section_sorting">
 				<source>Section sorting</source>
 			</trans-unit>
