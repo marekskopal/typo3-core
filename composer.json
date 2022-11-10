@@ -1,6 +1,6 @@
 {
     "name": "marekskopal/typo3-core",
-    "version": "10.4.4",
+    "version": "11.5.0",
     "type": "typo3-cms-extension",
     "description": "Core plugin for my TYPO3 CMS webs",
     "keywords": [
@@ -16,15 +16,13 @@
     ],
     "license": ["GPL-2.0-or-later"],
     "require": {
-        "typo3/cms-core": "^10.4.10",
-        "typo3/cms-fluid-styled-content": "^10.4",
-        "typo3/cms-rte-ckeditor": "^10.4",
-        "netresearch/rte-ckeditor-image": "^10.1",
-        "georgringer/news": "^8.1",
-        "gridelementsteam/gridelements": "^10.2",
-        "laxap/bootstrap-grids": "^2.2",
-        "dirkpersky/typo3-rte-ckeditor-fontawesome": "^10.3",
-        "tpwd/ke_search": "^4.1"
+        "typo3/cms-core": "^11.5.18",
+        "typo3/cms-fluid-styled-content": "^11.5",
+        "typo3/cms-rte-ckeditor": "^11.5",
+        "netresearch/rte-ckeditor-image": "^11.0",
+        "georgringer/news": "^10.0",
+        "dirkpersky/typo3-rte-ckeditor-fontawesome": "^11.5",
+        "tpwd/ke_search": "^4.5"
     },
     "autoload": {
         "psr-4": {
