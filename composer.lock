@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "173abd4dc7ea540dd982d28ad794b2f0",
+    "content-hash": "61199b764840e23f575f123c89d41ea4",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -904,16 +904,16 @@
         },
         {
             "name": "georgringer/news",
-            "version": "10.0.2",
+            "version": "9.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/georgringer/news.git",
-                "reference": "fee57ce6c9108bdb3a71c8577d39775c42663ccb"
+                "reference": "dbecd7289de6554c06b733de7c8337c52cb3a130"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/georgringer/news/zipball/fee57ce6c9108bdb3a71c8577d39775c42663ccb",
-                "reference": "fee57ce6c9108bdb3a71c8577d39775c42663ccb",
+                "url": "https://api.github.com/repos/georgringer/news/zipball/dbecd7289de6554c06b733de7c8337c52cb3a130",
+                "reference": "dbecd7289de6554c06b733de7c8337c52cb3a130",
                 "shasum": ""
             },
             "require": {
@@ -930,7 +930,6 @@
                 "typo3/cms-install": "^10.4 || ^11"
             },
             "suggest": {
-                "georgringer/news-tagsuggest": "On the fly creation of tag records within a news record",
                 "georgringer/numbered-pagination": "Improved pagination API",
                 "reelworx/rx-shariff": "GDPR compliant social sharing"
             },
@@ -954,7 +953,6 @@
             "authors": [
                 {
                     "name": "Georg Ringer",
-                    "homepage": "https://ringer.it",
                     "role": "Developer"
                 }
             ],
@@ -973,23 +971,15 @@
             },
             "funding": [
                 {
-                    "url": "https://paypal.me/GeorgRinger/10",
+                    "url": "https://www.paypal.me/GeorgRinger/10",
                     "type": "custom"
-                },
-                {
-                    "url": "https://www.amazon.de/hz/wishlist/ls/8F573K08TSDG",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/georgringer",
-                    "type": "github"
                 },
                 {
                     "url": "https://www.patreon.com/georgringer",
                     "type": "patreon"
                 }
             ],
-            "time": "2022-10-27T14:16:25+00:00"
+            "time": "2022-04-26T17:07:12+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

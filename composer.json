@@ -20,7 +20,7 @@
         "typo3/cms-fluid-styled-content": "^11.5",
         "typo3/cms-rte-ckeditor": "^11.5",
         "netresearch/rte-ckeditor-image": "^11.0",
-        "georgringer/news": "^10.0",
+        "georgringer/news": "^9.4",
         "dirkpersky/typo3-rte-ckeditor-fontawesome": "^11.5",
         "tpwd/ke_search": "^4.5"
     },
