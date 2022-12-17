@@ -3,8 +3,9 @@
 
 namespace Skopal\MsCore\Controller;
 
-use TYPO3\CMS\Core\Log\LogManager;
-use \TYPO3\CMS\Core\Resource;
+use TYPO3\CMS\Core\Log\LogLevel;
+use TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException;
+use TYPO3\CMS\Core\Resource\ResourceFactory;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -20,7 +21,7 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
      * @param array $conf TypoScript configuration
      * @return string HTML output
      */
-    public function renderImageAttributes($content = '', $conf)
+    public function renderImageAttributes($content = '', $conf = [])
     {
         $imageAttributes = $this->getImageAttributes();
 
@@ -32,14 +33,15 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
             $fileUid = (int)$imageAttributes['data-htmlarea-file-uid'];
             if ($fileUid) {
                 try {
-                    $resourceFactory = GeneralUtility::makeInstance(Resource\ResourceFactory::class);
-                    $file = $resourceFactory->getFileObject($fileUid);
-                    if ($imageAttributes['src'] !== $file->getPublicUrl()) {
+                    $systemImage = GeneralUtility::makeInstance(ResourceFactory::class)->getFileObject($fileUid);
+
+                    if ($imageAttributes['src'] !== $systemImage->getPublicUrl()) {
                         // Source file is a processed image
                         $imageConfiguration = [
                             'width' => (int)$imageAttributes['width'],
                             'height' => (int)$imageAttributes['height']
                         ];
+
                         $magicService = $this->getMagicImageService();
                         $magicService->setMagicImageMaximumDimensions([
                             'buttons.' => [
@@ -53,27 +55,35 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
                                 ]
                             ]
                         ]);
-                        $processedFile = $this->getMagicImageService()->createMagicImage($file, $imageConfiguration);
+                        $processedFile = $this->getMagicImageService()->createMagicImage($systemImage, $imageConfiguration);
+
                         $additionalAttributes = [
                             'src' => $processedFile->getPublicUrl(),
-                            'title' => ($imageAttributes['title']) ? $imageAttributes['title'] : $file->getProperty('title'),
-                            'alt' => ($imageAttributes['alt']) ? $imageAttributes['alt'] : $file->getProperty('alternative'),
+                            'title' => self::getAttributeValue('title', $imageAttributes, $systemImage),
+                            'alt' => self::getAttributeValue('alt', $imageAttributes, $systemImage),
                             'width' => ($processedFile->getProperty('width')) ? $processedFile->getProperty('width') : $imageConfiguration['width'],
                             'height' => ($processedFile->getProperty('height')) ? $processedFile->getProperty('height') : $imageConfiguration['height'],
                         ];
+
+                        if (!empty($GLOBALS['TSFE']->tmpl->setup['lib.']['contentElement.']['settings.']['media.']['lazyLoading'])) {
+                            $additionalAttributes['loading'] = $GLOBALS['TSFE']->tmpl->setup['lib.']['contentElement.']['settings.']['media.']['lazyLoading'];
+                        }
+
+                        // Remove internal attributes
+                        unset($imageAttributes['data-title-override']);
+                        unset($imageAttributes['data-alt-override']);
+
                         $imageAttributes = array_merge($imageAttributes, $additionalAttributes);
                     }
-                } catch (Resource\Exception\FileDoesNotExistException $fileDoesNotExistException) {
+                } catch (FileDoesNotExistException $fileDoesNotExistException) {
                     // Log in fact the file could not be retrieved.
                     $message = sprintf('I could not find file with uid "%s"', $fileUid);
-                    $this->getLogger()->error($message);
+                    $this->getLogger()->log(LogLevel::ERROR, $message);
                 }
             }
         }
 
         $imageAttributes['class'] = (!empty($imageAttributes['class']) ? $imageAttributes['class'] . ' ' : '') . 'img-fluid';
-
-        $imageAttributes['loading'] = 'lazy';
 
         // Cleanup attributes
         if (!isset($imageAttributes['data-htmlarea-zoom']) && !isset($imageAttributes['data-htmlarea-clickenlarge'])) {
@@ -87,7 +97,7 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
             $imageAttributes = array_diff_key($imageAttributes, array_flip($unsetParams));
         }
 
-        // Image template; empty attributes are removed by 3nd param 'false'
+        // Image template; empty attributes are removed by 3rd param 'false'
         $img = '<figure>';
         $img .= '<img ' . GeneralUtility::implodeAttributes($imageAttributes, true, false) . ' />';
 
@@ -98,16 +108,16 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
         $img .= '</figure>';
 
         // Popup rendering (support new `zoom` and legacy `clickenlarge` attributes)
-        if (($imageAttributes['data-htmlarea-zoom'] || $imageAttributes['data-htmlarea-clickenlarge']) && isset($file) && $file) {
+        if ((($imageAttributes['data-htmlarea-zoom'] ?? false) || ($imageAttributes['data-htmlarea-clickenlarge'] ?? false)) && isset($systemImage)) {
             $config = $GLOBALS['TSFE']->tmpl->setup['lib.']['contentElement.']['settings.']['media.']['popup.'];
             $config['enable'] = 1;
-            $file->updateProperties(array('title'=>($imageAttributes['title']) ? $imageAttributes['title'] : $file->getProperty('title')));
-            $this->cObj->setCurrentFile($file);
+            $systemImage->updateProperties(array('title'=>($imageAttributes['title']) ? $imageAttributes['title'] : $systemImage->getProperty('title')));
+            $this->cObj->setCurrentFile($systemImage);
 
             // Use $this->cObject to have access to all parameters from the image tag
             return $this->cObj->imageLinkWrap(
                 $img,
-                $file,
+                $systemImage,
                 $config
             );
         }

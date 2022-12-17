@@ -22,7 +22,8 @@
         "netresearch/rte-ckeditor-image": "^11.0",
         "georgringer/news": "^9.4",
         "dirkpersky/typo3-rte-ckeditor-fontawesome": "^11.5",
-        "tpwd/ke_search": "^4.5"
+        "tpwd/ke_search": "^4.5",
+        "georgringer/numbered-pagination": "^1.0"
     },
     "autoload": {
         "psr-4": {

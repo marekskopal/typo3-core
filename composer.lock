@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61199b764840e23f575f123c89d41ea4",
+    "content-hash": "cc98faa716d90ddbe6215e27cc62191f",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -980,6 +980,78 @@
                 }
             ],
             "time": "2022-04-26T17:07:12+00:00"
+        },
+        {
+            "name": "georgringer/numbered-pagination",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/georgringer/numbered_pagination.git",
+                "reference": "ce4b4fcaf0ecd4282399b1f402a510db304d425a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/georgringer/numbered_pagination/zipball/ce4b4fcaf0ecd4282399b1f402a510db304d425a",
+                "reference": "ce4b4fcaf0ecd4282399b1f402a510db304d425a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3",
+                "typo3/cms-core": "^9 || ^10 || ^11"
+            },
+            "replace": {
+                "typo3-ter/numbered-pagination": "self.version"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "numbered_pagination"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GeorgRinger\\NumberedPagination\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Georg Ringer",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Improved pagination for TYPO3",
+            "homepage": "https://github.com/georgringer/numbered_pagination",
+            "keywords": [
+                "pagination",
+                "typo3"
+            ],
+            "support": {
+                "issues": "https://github.com/georgringer/numbered_pagination/issues",
+                "source": "https://github.com/georgringer/numbered_pagination/tree/1.0.4"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/GeorgRinger/10",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.amazon.de/hz/wishlist/ls/8F573K08TSDG",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/georgringer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/georgringer",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2022-02-10T10:42:44+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

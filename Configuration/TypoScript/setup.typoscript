@@ -99,7 +99,7 @@ lib.breadcrumb {
     }
 }
 
-[(request.getQueryParams()['tx_news_pi1'])['news'] > 0]
+[(request.getQueryParams()['tx_news_pi1']['news'] ?? null) > 0]
     lib.breadcrumb {
         10 {
             1 {
@@ -402,7 +402,6 @@ plugin.tx_news {
     view {
         templateRootPaths.2 = EXT:ms_core/Resources/Private/View/Plugin/news/Templates/
         partialRootPaths.2 = EXT:ms_core/Resources/Private/View/Plugin/news/Partials/
-        widget.GeorgRinger\News\ViewHelpers\Widget\PaginateViewHelper.templateRootPath = EXT:ms_core/Resources/Private/View/Plugin/news/Templates/
     }
 }
 
