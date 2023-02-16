@@ -1,6 +1,6 @@
 {
     "name": "marekskopal/typo3-core",
-    "version": "11.5.0",
+    "version": "11.5.1",
     "type": "typo3-cms-extension",
     "description": "Core plugin for my TYPO3 CMS webs",
     "keywords": [
