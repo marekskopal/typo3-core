@@ -21,17 +21,18 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
      * @param array $conf TypoScript configuration
      * @return string HTML output
      */
-    public function renderImageAttributes($content = '', $conf = [])
+    public function renderImageAttributes(?string $content, array $conf = []): string
     {
-        $imageAttributes = $this->getImageAttributes();
+		$imageAttributes = $this->getImageAttributes();
+		$imageSource     = $imageAttributes['src'] ?? '';
 
         // It is pretty rare to be in presence of an external image as the default behaviour
         // of the RTE is to download the external image and create a local image.
         // However, it may happen if the RTE has the flag "disable"
-        if (!$this->isExternalImage()) {
+		if (!$this->isExternalImage($imageSource)) {
+			$fileUid = (int) ($imageAttributes['data-htmlarea-file-uid'] ?? 0);
 
-            $fileUid = (int)$imageAttributes['data-htmlarea-file-uid'];
-            if ($fileUid) {
+			if ($fileUid > 0) {
                 try {
                     $systemImage = GeneralUtility::makeInstance(ResourceFactory::class)->getFileObject($fileUid);
 
@@ -129,7 +130,7 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
      *
      * @return bool
      */
-    protected function isExternalImage()
+	protected function isExternalImage(string $imageSource): bool
     {
         $fileUid = $this->cObj->parameters['data-htmlarea-file-uid'] ?? null;
         return $fileUid === null;
