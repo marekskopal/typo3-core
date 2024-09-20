@@ -10,7 +10,6 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
 {
-
     /**
      * @param ContentObjectRenderer $cObj The data of the content element or page
      * @param array $contentObjectConfiguration The configuration of Content Object

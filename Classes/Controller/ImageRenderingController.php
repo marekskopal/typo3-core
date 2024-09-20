@@ -9,10 +9,6 @@ use TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
-/**
- * Controller to render the image tag in frontend
- *
- */
 class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\ImageRenderingController
 {
     /**
@@ -24,16 +20,16 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
      */
     public function renderImageAttributes(?string $content, array $conf = []): string
     {
-		$imageAttributes = $this->getImageAttributes();
-		$imageSource     = $imageAttributes['src'] ?? '';
+        $imageAttributes = $this->getImageAttributes();
+        $imageSource     = $imageAttributes['src'] ?? '';
 
         // It is pretty rare to be in presence of an external image as the default behaviour
         // of the RTE is to download the external image and create a local image.
         // However, it may happen if the RTE has the flag "disable"
-		if (!$this->isExternalImage($imageSource)) {
-			$fileUid = (int) ($imageAttributes['data-htmlarea-file-uid'] ?? 0);
+        if (!$this->isExternalImage($imageSource)) {
+            $fileUid = (int) ($imageAttributes['data-htmlarea-file-uid'] ?? 0);
 
-			if ($fileUid > 0) {
+            if ($fileUid > 0) {
                 try {
                     $systemImage = GeneralUtility::makeInstance(ResourceFactory::class)->getFileObject($fileUid);
 
@@ -131,7 +127,7 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
      *
      * @return bool
      */
-	protected function isExternalImage(string $imageSource): bool
+    protected function isExternalImage(string $imageSource): bool
     {
         $fileUid = $this->cObj->parameters['data-htmlarea-file-uid'] ?? null;
         return $fileUid === null;
