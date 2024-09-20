@@ -1,11 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Skopal\MsCore\DataProcessing;
 
 use GeorgRinger\News\Domain\Repository\NewsRepository;
-use TYPO3\CMS\Core\Context\Context;
-use \TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
@@ -22,11 +22,7 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
     {
         $processedData = parent::process($cObj, $contentObjectConfiguration, $processorConfiguration, $processedData);
 
-        /** @var ObjectManager $objectManager */
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
-
-        /** @var NewsRepository $newsRepository */
-        $newsRepository = $objectManager->get(NewsRepository::class);
+        $newsRepository = GeneralUtility::makeInstance(NewsRepository::class);
 
         $languages = [];
         foreach ($processedData[$this->menuTargetVariableName] ?? [] as $language) {
@@ -39,10 +35,11 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
                     $querySettings->setRespectSysLanguage(false);
                     $querySettings->setLanguageUid($language['languageId']);
                     $news = $query->matching(
-                        $query->logicalAnd([
+                        $query->logicalAnd(
                             $query->equals('uid', $newsParams['news']),
                             $query->equals('deleted', 0)
-                        ]))->execute()->getFirst();
+                        )
+					)->execute()->getFirst();
 
                     if ($news !== null) {
                         $languages[] = $language;

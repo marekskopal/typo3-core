@@ -1,8 +1,8 @@
 {
     "name": "marekskopal/typo3-core",
-    "version": "11.5.1",
+    "version": "12.4.0",
     "type": "typo3-cms-extension",
-    "description": "Core plugin for my TYPO3 CMS webs",
+    "description": "Core plugin for marekskopal TYPO3 CMS webs",
     "keywords": [
         "TYPO3"
     ],
@@ -16,14 +16,14 @@
     ],
     "license": ["GPL-2.0-or-later"],
     "require": {
-        "typo3/cms-core": "^11.5.18",
-        "typo3/cms-fluid-styled-content": "^11.5",
-        "typo3/cms-rte-ckeditor": "^11.5",
-        "netresearch/rte-ckeditor-image": "^11.0",
-        "georgringer/news": "^9.4",
-        "dirkpersky/typo3-rte-ckeditor-fontawesome": "^11.5",
-        "tpwd/ke_search": "^4.5",
-        "georgringer/numbered-pagination": "^1.0"
+        "typo3/cms-core": "^12.4.20",
+        "typo3/cms-fluid-styled-content": "^12.4",
+        "typo3/cms-rte-ckeditor": "^12.4",
+        "netresearch/rte-ckeditor-image": "^12.0",
+        "georgringer/news": "^11.4",
+        "dirkpersky/typo3-rte-ckeditor-fontawesome": "^12.2",
+        "tpwd/ke_search": "^5.5",
+        "georgringer/numbered-pagination": "^2.0"
     },
     "autoload": {
         "psr-4": {

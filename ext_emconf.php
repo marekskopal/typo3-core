@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Marek Skopal - Core',
     'description' => 'Core settings extension.',
@@ -23,9 +25,9 @@ $EM_CONF[$_EXTKEY] = [
     'CGLcompliance_note' => '',
     'constraints' => [
         'depends' => [
-            'typo3' => '9.5.0',
-            'fluid_styled_content' => '9.5.0',
-            'rte_ckeditor_image' => '9.0.0'
+            'typo3' => '12.4.0',
+            'fluid_styled_content' => '12.4.0',
+            'rte_ckeditor_image' => '12.4.0'
         ],
         'conflicts' =>[
         ],

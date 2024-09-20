@@ -20,3 +20,4 @@
 !/private/typo3conf/l10n
 
 /public
+composer.lock

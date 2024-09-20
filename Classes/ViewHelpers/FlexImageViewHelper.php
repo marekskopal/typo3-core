@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Skopal\MsCore\ViewHelpers;
 
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
