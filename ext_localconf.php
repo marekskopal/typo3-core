@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
-}
+defined('TYPO3') or die();
 
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['ms_core'] = 'EXT:ms_core/Configuration/RTE/Default.yaml';
 

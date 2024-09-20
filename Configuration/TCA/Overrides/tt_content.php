@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 $llPath = 'LLL:EXT:ms_core/Resources/Private/Language/locallang_db.xlf';
 

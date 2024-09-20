@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-if (!defined('TYPO3_MODE')) {
-    die('Access denied.');
-}
+defined('TYPO3') or die();
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('ms_core', 'Configuration/TypoScript', 'MS - Core');
 
