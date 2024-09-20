@@ -228,8 +228,6 @@ lib.parseFunc_RTE {
 
 page.includeJSFooterlibs {
     jquery = EXT:ms_core/Resources/Public/Javascript/jquery-3.7.1.min.js
-    jquery_ui = EXT:ms_core/Resources/Public/Javascript/jquery-ui.min.js
-    jquery_ui_l18n_cs = EXT:ms_core/Resources/Public/Javascript/l18n/datepicker-cs.js
     popperjs = EXT:ms_core/Resources/Public/Javascript/popper.min.js
     bootstrap = EXT:ms_core/Resources/Public/Javascript/bootstrap.min.js
     lightGallery = EXT:ms_core/Resources/Public/Javascript/lightGallery/js/lightgallery-all.min.js
@@ -317,7 +315,6 @@ page {
         copyright = {$page.meta.copyright}
     }
     includeCSS {
-        jquery_ui = EXT:ms_core/Resources/Public/Css/jquery-ui.min.css
         lightGallery = EXT:ms_core/Resources/Public/Javascript/lightGallery/css/lightgallery.min.css
         theme = {$page.includePath.css}styles.min.css
     }
