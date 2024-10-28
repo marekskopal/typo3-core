@@ -3,7 +3,7 @@ imports:
     - { resource: "EXT:ms_core/Configuration/RTE/Processing.yaml" }
     - { resource: "EXT:ms_core/Configuration/RTE/Editor/Base.yaml" }
     - { resource: "EXT:ms_core/Configuration/RTE/Editor/Plugins.yaml" }
-    - { resource: "EXT:rte_ckeditor_image/Configuration/RTE/Plugin.yaml" }
+    #- { resource: "EXT:rte_ckeditor_image/Configuration/RTE/Plugin.yaml" }
 
 # Add configuration for the editor
 # For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
