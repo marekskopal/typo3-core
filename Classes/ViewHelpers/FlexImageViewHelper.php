@@ -14,7 +14,7 @@ class FlexImageViewHelper extends AbstractViewHelper
     /** @var bool */
     protected $escapeOutput = false;
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerArgument(self::ARGUMENT_ROW, 'array', 'Row');
@@ -23,6 +23,14 @@ class FlexImageViewHelper extends AbstractViewHelper
 
     public function render(): string
     {
+        /**
+         * @var array{
+         *     dimensions: array{
+         *         width: int,
+         *         height: int,
+         *     },
+         * } $image
+         */
         $image = $this->arguments[self::ARGUMENT_IMAGE];
 
         $aspectRatio = ($image['dimensions']['width']) / $image['dimensions']['height'];
