@@ -192,9 +192,9 @@ lib.navigation {
     }
 }
 
-###############################
-#### LIB Parsovani vystupu ####
-###############################
+##############################
+#### LIB Parsing Function ####
+##############################
 lib.stdheader >
 lib.parseFunc {
     nonTypoTagStdWrap >
@@ -222,9 +222,9 @@ lib.parseFunc_RTE {
     }
 }
 
-############################
-#### JAVASCRIP KNIHOVNY ####
-############################
+##############################
+#### JAVASCRIPT LIBRARIES ####
+##############################
 
 page.includeJSFooterlibs {
     jquery = EXT:ms_core/Resources/Public/Javascript/jquery-3.7.1.min.js
