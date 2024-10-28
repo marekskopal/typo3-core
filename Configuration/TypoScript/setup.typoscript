@@ -274,6 +274,10 @@ page {
             5 = {$page.templatePage.layoutRootPath}
         }
         variables {
+            applicationContext = TEXT
+            applicationContext {
+                stdWrap.data = getenv : TYPO3_CONTEXT
+            }
 
             pageTitle = TEXT
             pageTitle.data = page:title
@@ -321,57 +325,59 @@ page {
     page.bodyTag = <body class="homepage">
 [END]
 
+[applicationContext == "Development"]
+    page.meta {
+        robots = noindex, nofollow
+        googlebot = nosnippet, noarchive
+    }
+[END]
+
 ################
 #### CONFIG ####
 ################
 config {
-    no_cache                            = {$config.no_cache}
-    uniqueLinkVars                      = 1
-    pageTitleFirst                      = 1
-    linkVars                            = L
-    renderCharset                       = utf-8
-    metaCharset                         = utf-8
-    doctype                             = html5
-    inlineStyle2TempFile                = 1
-    admPanel                            = 1
-    debug                               = 0
-    cache_period                        = 86400
-    sendCacheHeaders                    = 0
-    intTarget                           =
-    extTarget                           =
-    disablePrefixComment                = 1
-    index_enable                        = 1
-    index_externals                     = 1
+    no_cache = {$config.no_cache}
+    uniqueLinkVars = 1
+    pageTitleFirst = 1
+    linkVars = L
+    renderCharset = utf-8
+    metaCharset = utf-8
+    doctype = html5
+    inlineStyle2TempFile = 1
+    admPanel = 0
+    contentObjectExceptionHandler = 0
+    debug = 0
+    cache_period = 86400
+    sendCacheHeaders = 0
+    intTarget =
+    extTarget =
+    disablePrefixComment = 1
+    index_enable = 1
+    index_externals = 1
     pageTitleSeparator = |
     pageTitleSeparator.noTrimWrap = | | |
     headerComment (
         created by Marek Skopal
     )
-
-    // Enable RealUrl
-    tx_realurl_enable                   = 1
-    simulateStaticDocuments             = 0
-    absRefPrefix                        = auto
-
-    // Disable Image Upscaling
-    noScaleUp                           = 1
-
-    // Language Settings
-    sys_language_overlay                = 0
-
-    // Compression and Concatenation of CSS and JS Files
-    compressJs                          = {$config.compressJs}
-    compressCss                         = {$config.compressCss}
-    concatenateJs                       = {$config.concatenateJs}
-    concatenateCss                      = {$config.concatenateCss}
-
+    simulateStaticDocuments = 0
+    absRefPrefix = auto
+    frontend_editing = 0
+    noScaleUp = 1
+    sys_language_overlay = 0
+    compressJs = {$config.compressJs}
+    compressCss = {$config.compressCss}
+    concatenateJs = {$config.concatenateJs}
+    concatenateCss = {$config.concatenateCss}
     spamProtectEmailAddresses = 1
     spamProtectEmailAddresses_atSubst = @
     spamProtectEmailAddresses_lastDotSubst = .<span class="hidden">.</span>
-
     removeDefaultCss = 1
     removeDefaultJS = external
 }
+
+[applicationContext == "Development"]
+    config.no_cache = 1
+[END]
 
 #################
 #### PLUGINS ####
