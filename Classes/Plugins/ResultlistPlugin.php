@@ -6,7 +6,7 @@ namespace Skopal\MsCore\Plugins;
 
 class ResultlistPlugin extends \Tpwd\KeSearch\Plugins\ResultlistPlugin
 {
-    public function initFluidTemplate()
+    public function initFluidTemplate(): void
     {
         parent::initFluidTemplate();
 
