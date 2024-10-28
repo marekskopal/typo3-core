@@ -278,9 +278,6 @@ page {
             pageTitle = TEXT
             pageTitle.data = page:title
 
-            siteTitle = TEXT
-            siteTitle.data = TSFE:tmpl|setup|sitetitle
-
             rootPage = TEXT
             rootPage.data = leveluid:0
 
