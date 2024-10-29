@@ -27,9 +27,9 @@ $fields = [
         'exclude' => true,
         'label' => $llPath . ':tt_content.section_sorting',
         'config' => [
-            'type' => 'input',
+            'type' => 'number',
             'size' => 10,
-            'eval' => 'int',
+            'format' => 'integer',
         ]
     ],
 ];
@@ -51,61 +51,61 @@ unset($GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][2]);
 unset($GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][3]);
 
 $GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][] = [
-    'container',
-    'container'
+    'label' => 'container',
+    'value' => 'container',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][] = [
-    'container-sm',
-    'container-sm'
+    'label' => 'container-sm',
+    'value' => 'container-sm',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][] = [
-    'container-md',
-    'container-md'
+    'label' => 'container-md',
+    'value' => 'container-md',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][] = [
-    'container-lg',
-    'container-lg'
+    'label' => 'container-lg',
+    'value' => 'container-lg',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][] = [
-    'container-xl',
-    'container-xl'
+    'label' => 'container-xl',
+    'value' => 'container-xl',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][] = [
-    'container-xxl',
-    'container-xxl'
+    'label' => 'container-xxl',
+    'value' => 'container-xxl',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['layout']['config']['items'][] = [
-    'container-fluid',
-    'container-fluid'
+    'label' => 'container-fluid',
+    'value' => 'container-fluid',
 ];
 
 $GLOBALS['TCA']['tt_content']['columns']['frame_class']['config']['items'] = [
     [
-        'No style',
-        'default',
+        'label' => 'No style',
+        'value' => 'default',
     ],
     [
-        'Style 1',
-        'style-1',
+        'label' => 'Style 1',
+        'value' => 'style-1',
     ],
     [
-        'Style 2',
-        'style-2',
+        'label' => 'Style 2',
+        'value' => 'style-2',
     ],
     [
-        'Style 3',
-        'style-3',
+        'label' => 'Style 3',
+        'value' => 'style-3',
     ],
 ];
 
 
 $GLOBALS['TCA']['tt_content']['columns']['space_before_class']['config']['items'][] = [
-    'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:frame_class.none',
-    'none'
+    'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:frame_class.none',
+    'value' => 'none',
 ];
 $GLOBALS['TCA']['tt_content']['columns']['space_after_class']['config']['items'][] = [
-    'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:frame_class.none',
-    'none'
+    'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:frame_class.none',
+    'value' => 'none',
 ];
 
 $GLOBALS['TCA']['tt_content']['types']['image']['showitem'] = '
