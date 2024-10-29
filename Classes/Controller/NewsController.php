@@ -9,6 +9,8 @@ use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspect;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Frontend\Controller\ErrorController;
+use TYPO3\CMS\Frontend\Page\PageAccessFailureReasons;
 
 class NewsController extends \GeorgRinger\News\Controller\NewsController
 {
@@ -36,7 +38,12 @@ class NewsController extends \GeorgRinger\News\Controller\NewsController
             )->execute()->getFirst();
 
             if ($news === null) {
-                $GLOBALS['TSFE']->pageNotFoundAndExit('Entity not found.');
+                $errorController = GeneralUtility::makeInstance(ErrorController::class);
+                return $errorController->pageNotFoundAction(
+                    $this->request,
+                    'The requested page does not exist',
+                    ['code' => PageAccessFailureReasons::PAGE_NOT_FOUND]
+                );
             }
         }
 
