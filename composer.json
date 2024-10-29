@@ -1,6 +1,5 @@
 {
     "name": "marekskopal/typo3-core",
-    "version": "13.4.0",
     "type": "typo3-cms-extension",
     "description": "Core plugin for Marek Skopal's TYPO3 CMS webs",
     "keywords": [
