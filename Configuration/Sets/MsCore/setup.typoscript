@@ -227,7 +227,7 @@ lib.parseFunc_RTE {
 ##############################
 
 page.includeJSFooterlibs {
-    jquery = EXT:ms_core/Resources/Public/Javascript/jquery-3.7.1.min.js
+    jquery = EXT:ms_core/Resources/Public/Javascript/jquery-4.0.0.min.js
     popperjs = EXT:ms_core/Resources/Public/Javascript/popper.min.js
     bootstrap = EXT:ms_core/Resources/Public/Javascript/bootstrap.min.js
     lightGallery = EXT:ms_core/Resources/Public/Javascript/lightGallery/js/lightgallery-all.min.js
