@@ -15,13 +15,13 @@
     ],
     "license": ["GPL-2.0-or-later"],
     "require": {
+        "georgringer/news": "^12.0",
+        "georgringer/numbered-pagination": "^2.1",
+        "netresearch/rte-ckeditor-image": "dev-typo-v13",
+        "tpwd/ke_search": "^6.0",
         "typo3/cms-core": "^13.4",
         "typo3/cms-fluid-styled-content": "^13.4",
-        "typo3/cms-rte-ckeditor": "^13.4",
-        "netresearch/rte-ckeditor-image": "dev-typo-v13",
-        "georgringer/news": "^12.0",
-        "tpwd/ke_search": "^6.0",
-        "georgringer/numbered-pagination": "^2.1"
+        "typo3/cms-rte-ckeditor": "^13.4"
     },
     "autoload": {
         "psr-4": {
