@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Skopal\MsCore\Controller;
 
+use Netresearch\RteCKEditorImage\Utils\ProcessedFilesHandler;
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Log\LogLevel;
 use TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
@@ -11,14 +13,7 @@ use \TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\ImageRenderingController
 {
-    /**
-     * Returns a processed image to be displayed on the Frontend.
-     *
-     * @param string $content Content input (not used).
-     * @param array $conf TypoScript configuration
-     * @return string HTML output
-     */
-    public function renderImageAttributes(?string $content, array $conf = []): string
+    public function renderImageAttributes(?string $content, array $conf, ServerRequestInterface $request): string
     {
         $imageAttributes = $this->getImageAttributes();
         $imageSource     = $imageAttributes['src'] ?? '';
@@ -34,26 +29,12 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
                     $systemImage = GeneralUtility::makeInstance(ResourceFactory::class)->getFileObject($fileUid);
 
                     if ($imageAttributes['src'] !== $systemImage->getPublicUrl()) {
-                        // Source file is a processed image
+                        $processedHandler = GeneralUtility::makeInstance(ProcessedFilesHandler::class);
                         $imageConfiguration = [
-                            'width' => (int)$imageAttributes['width'],
-                            'height' => (int)$imageAttributes['height']
+                            'width'  => (int) ($imageAttributes['width']  ?? $systemImage->getProperty('width') ?? 0),
+                            'height' => (int) ($imageAttributes['height'] ?? $systemImage->getProperty('height') ?? 0),
                         ];
-
-                        $magicService = $this->getMagicImageService();
-                        $magicService->setMagicImageMaximumDimensions([
-                            'buttons.' => [
-                                'image.' => [
-                                    'options.' => [
-                                        'magic.' => [
-                                            'maxWidth' => $imageConfiguration['width'],
-                                            'maxHeight' => $imageConfiguration['height'],
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]);
-                        $processedFile = $this->getMagicImageService()->createMagicImage($systemImage, $imageConfiguration);
+                        $processedFile = $processedHandler->createProcessedFile($systemImage, $imageConfiguration);
 
                         $additionalAttributes = [
                             'src' => $processedFile->getPublicUrl(),
@@ -63,8 +44,10 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
                             'height' => ($processedFile->getProperty('height')) ? $processedFile->getProperty('height') : $imageConfiguration['height'],
                         ];
 
-                        if (!empty($GLOBALS['TSFE']->tmpl->setup['lib.']['contentElement.']['settings.']['media.']['lazyLoading'])) {
-                            $additionalAttributes['loading'] = $GLOBALS['TSFE']->tmpl->setup['lib.']['contentElement.']['settings.']['media.']['lazyLoading'];
+                        $setupArray = $request->getAttribute('frontend.typoscript')->getSetupArray();
+                        $lazyLoading = $setupArray['lib.']['contentElement.']['settings.']['media.']['lazyLoading'] ?? null;
+                        if ($lazyLoading !== null) {
+                            $additionalAttributes['loading'] = $lazyLoading;
                         }
 
                         // Remove internal attributes
