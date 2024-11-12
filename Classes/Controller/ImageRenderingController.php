@@ -18,6 +18,9 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
         $imageAttributes = $this->getImageAttributes();
         $imageSource     = $imageAttributes['src'] ?? '';
 
+        $setupArray = $request->getAttribute('frontend.typoscript')->getSetupArray();
+        $lazyLoading = $setupArray['lib.']['contentElement.']['settings.']['media.']['lazyLoading'] ?? null;
+
         // It is pretty rare to be in presence of an external image as the default behaviour
         // of the RTE is to download the external image and create a local image.
         // However, it may happen if the RTE has the flag "disable"
@@ -44,8 +47,6 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
                             'height' => ($processedFile->getProperty('height')) ? $processedFile->getProperty('height') : $imageConfiguration['height'],
                         ];
 
-                        $setupArray = $request->getAttribute('frontend.typoscript')->getSetupArray();
-                        $lazyLoading = $setupArray['lib.']['contentElement.']['settings.']['media.']['lazyLoading'] ?? null;
                         if ($lazyLoading !== null) {
                             $additionalAttributes['loading'] = $lazyLoading;
                         }
@@ -65,6 +66,10 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
         }
 
         $imageAttributes['class'] = (!empty($imageAttributes['class']) ? $imageAttributes['class'] . ' ' : '') . 'img-fluid';
+
+        if ($lazyLoading !== null) {
+            $imageAttributes['loading'] = $lazyLoading;
+        }
 
         // Cleanup attributes
         if (!isset($imageAttributes['data-htmlarea-zoom']) && !isset($imageAttributes['data-htmlarea-clickenlarge'])) {
