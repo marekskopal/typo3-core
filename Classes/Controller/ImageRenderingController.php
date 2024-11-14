@@ -31,7 +31,7 @@ class ImageRenderingController extends \Netresearch\RteCKEditorImage\Controller\
                 try {
                     $systemImage = GeneralUtility::makeInstance(ResourceFactory::class)->getFileObject($fileUid);
 
-                    if ($imageAttributes['src'] !== $systemImage->getPublicUrl()) {
+                    if (($imageAttributes['src'] ?? null) !== $systemImage->getPublicUrl()) {
                         $processedHandler = GeneralUtility::makeInstance(ProcessedFilesHandler::class);
                         $imageConfiguration = [
                             'width'  => (int) ($imageAttributes['width']  ?? $systemImage->getProperty('width') ?? 0),
