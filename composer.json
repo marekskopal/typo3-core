@@ -15,9 +15,9 @@
     ],
     "license": ["GPL-2.0-or-later"],
     "require": {
-        "georgringer/news": "^12.0",
+        "georgringer/news": "dev-main",
         "georgringer/numbered-pagination": "^2.1",
-        "netresearch/rte-ckeditor-image": "dev-typo-v13",
+        "netresearch/rte-ckeditor-image": "dev-main",
         "tpwd/ke_search": "^6.0",
         "typo3/cms-core": "^13.4",
         "typo3/cms-fluid-styled-content": "^13.4",
@@ -40,12 +40,6 @@
             "typo3/cms-composer-installers": true
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/marekskopal/t3x-rte_ckeditor_image"
-        }
-    ],
     "require-dev": {
         "phpstan/phpstan": "^1.12"
     }
