@@ -14,7 +14,7 @@ use TYPO3\CMS\Frontend\Page\PageAccessFailureReasons;
 
 class NewsController extends \GeorgRinger\News\Controller\NewsController
 {
-    public function detailAction(News $news = null, $currentPage = 1): ResponseInterface
+    public function detailAction(?News $news = null, $currentPage = 1): ResponseInterface
     {
         /** @var LanguageAspect $languageAspect */
         $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');

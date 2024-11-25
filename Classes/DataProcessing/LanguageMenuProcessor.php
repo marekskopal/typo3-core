@@ -20,14 +20,27 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
      */
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData): array
     {
-        $processedData = parent::process($cObj, $contentObjectConfiguration, $processorConfiguration, $processedData);
+        /**
+         * @var array<string, array{
+         *     available: int,
+         *     languageId: int,
+         * }> $parentProcessedData
+         */
+        $parentProcessedData = parent::process($cObj, $contentObjectConfiguration, $processorConfiguration, $processedData);
 
         $menuTargetVariableName = $this->getConfigurationValue('as');
 
         $newsRepository = GeneralUtility::makeInstance(NewsRepository::class);
 
         $languages = [];
-        foreach ($processedData[$menuTargetVariableName] ?? [] as $language) {
+
+        /**
+         * @var array{
+         *     available: int,
+         *     languageId: int,
+         * } $language
+         */
+        foreach ($parentProcessedData[$menuTargetVariableName] ?? [] as $language) {
             if ($language['available'] != 1) {
                 continue;
             }
@@ -38,8 +51,9 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
                 continue;
             }
 
-            $newsParams = $request->getQueryParams()['tx_news_pi1'] ?? [];
-            if (!empty($newsParams) && $newsParams['action'] === 'detail' && $newsParams['news'] > 0) {
+            /** @var array{action: string, news: int}|null $newsParams */
+            $newsParams = $request->getQueryParams()['tx_news_pi1'] ?? null;
+            if ($newsParams !== null && $newsParams['action'] === 'detail' && $newsParams['news'] > 0) {
                 $query = $newsRepository->createQuery();
                 $querySettings = $query->getQuerySettings();
                 $querySettings->setRespectStoragePage(false);
@@ -54,18 +68,16 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
                     )
                 )->execute()->getFirst();
 
-                if ($news !== null) {
-                    $languages[] = $language;
+                if ($news === null) {
+                    continue;
                 }
-            } else {
-                $languages[] = $language;
             }
 
+            $languages[] = $language;
         }
 
-        $processedData[$menuTargetVariableName] = $languages;
+        $parentProcessedData[$menuTargetVariableName] = $languages;
 
-        return $processedData;
+        return $parentProcessedData;
     }
-
 }
