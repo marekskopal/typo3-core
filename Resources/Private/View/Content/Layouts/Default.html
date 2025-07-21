@@ -3,7 +3,7 @@
         <f:then>
             <div class="container-{data.frame_class}">
                 <div class="{data.layout}">
-                    <div id="{f:if(condition: data.section_hash, then: data.section_hash, else: 'c{data.uid}')}" class="frame frame-type-{data.CType} {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}{f:if(condition: data.frame_class, then: '{data.frame_class}')}">
+                    <div id="{f:if(condition: data.section_hash, then: data.section_hash, else: 'c{data.uid}')}" class="frame frame-type-{data.CType} {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}{f:if(condition: data.frame_css_class, then: '{data.frame_css_class}')}">
                         <f:if condition="{data._LOCALIZED_UID}">
                             <a id="c{data._LOCALIZED_UID}"></a>
                         </f:if>
@@ -25,7 +25,7 @@
             </div>
         </f:then>
         <f:else>
-            <div id="{f:if(condition: data.section_hash, then: data.section_hash, else: 'c{data.uid}')}" class="frame frame-{data.frame_class} frame-type-{data.CType} {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}{f:if(condition: data.frame_class, then: '{data.frame_class}')}">
+            <div id="{f:if(condition: data.section_hash, then: data.section_hash, else: 'c{data.uid}')}" class="frame frame-{data.frame_class} frame-type-{data.CType} {f:if(condition: data.space_before_class, then: ' frame-space-before-{data.space_before_class}')}{f:if(condition: data.space_after_class, then: ' frame-space-after-{data.space_after_class}')}{f:if(condition: data.frame_css_class, then: '{data.frame_css_class}')}">
                 <f:if condition="{data._LOCALIZED_UID}">
                     <a id="c{data._LOCALIZED_UID}"></a>
                 </f:if>

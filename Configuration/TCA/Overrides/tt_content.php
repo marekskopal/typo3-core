@@ -34,9 +34,9 @@ $fields = [
             'format' => 'integer',
         ]
     ],
-    'frame_class' => [
+    'frame_css_class' => [
         'exclude' => true,
-        'label' => $llPath . ':tt_content.frame_class',
+        'label' => $llPath . ':tt_content.frame_css_class',
         'config' => [
             'type' => 'input',
             'size' => 30,
@@ -47,7 +47,7 @@ $fields = [
 ExtensionManagementUtility::addTCAcolumns('tt_content', $fields);
 ExtensionManagementUtility::addFieldsToPalette('tt_content', 'section_pallete', 'section_hash,section_title,section_sorting');
 ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--palette--;' . $llPath . ':tt_content.section_pallete;section_pallete', '', 'after:sectionIndex');
-ExtensionManagementUtility::addFieldsToPalette('tt_content', 'frames', 'frame_class');
+ExtensionManagementUtility::addFieldsToPalette('tt_content', 'frames', 'frame_css_class');
 
 $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['default'] = 'text';
 

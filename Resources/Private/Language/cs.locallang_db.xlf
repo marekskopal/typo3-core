@@ -19,7 +19,7 @@
 				<source>Section sorting</source>
 				<target>Řazení sekce</target>
 			</trans-unit>
-			<trans-unit id="tt_content.frame_class">
+			<trans-unit id="tt_content.frame_css_class">
 				<source>CSS class</source>
 				<target>CSS třída</target>
 			</trans-unit>

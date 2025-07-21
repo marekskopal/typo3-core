@@ -15,7 +15,7 @@
 			<trans-unit id="tt_content.section_sorting">
 				<source>Section sorting</source>
 			</trans-unit>
-			<trans-unit id="tt_content.frame_class">
+			<trans-unit id="tt_content.frame_css_class">
 				<source>CSS class</source>
 			</trans-unit>
 		</body>
