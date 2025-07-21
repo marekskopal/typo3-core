@@ -3,7 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2020-08-25T00:00:00Z" product-name="ms_core">
 		<header/>
 		<body>
-
 			<trans-unit id="tt_content.section_pallete">
 				<source>Section</source>
 			</trans-unit>
@@ -16,6 +15,9 @@
 			<trans-unit id="tt_content.section_sorting">
 				<source>Section sorting</source>
 			</trans-unit>
-        </body>
-    </file>
+			<trans-unit id="tt_content.frame_class">
+				<source>CSS class</source>
+			</trans-unit>
+		</body>
+	</file>
 </xliff>

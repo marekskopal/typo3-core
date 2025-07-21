@@ -3,7 +3,6 @@
 	<file source-language="en" target-language="cs" datatype="plaintext" original="messages" date="2020-08-25T00:00:00Z" product-name="ms_core">
 		<header/>
 		<body>
-
 			<trans-unit id="tt_content.section_pallete">
 				<source>Section</source>
 				<target>Sekce</target>
@@ -20,7 +19,10 @@
 				<source>Section sorting</source>
 				<target>Řazení sekce</target>
 			</trans-unit>
-
-        </body>
-    </file>
+			<trans-unit id="tt_content.frame_class">
+				<source>CSS class</source>
+				<target>CSS třída</target>
+			</trans-unit>
+		</body>
+	</file>
 </xliff>

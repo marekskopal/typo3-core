@@ -1,5 +1,7 @@
 <?php
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 declare(strict_types=1);
 
 defined('TYPO3') or die();
@@ -32,12 +34,20 @@ $fields = [
             'format' => 'integer',
         ]
     ],
+    'frame_class' => [
+        'exclude' => true,
+        'label' => $llPath . ':tt_content.frame_class',
+        'config' => [
+            'type' => 'input',
+            'size' => 30,
+        ]
+    ],
 ];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $fields);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette('tt_content', 'section_pallete', 'section_hash,section_title,section_sorting');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--palette--;' . $llPath . ':tt_content.section_pallete;section_pallete', '', 'after:sectionIndex');
-
+ExtensionManagementUtility::addTCAcolumns('tt_content', $fields);
+ExtensionManagementUtility::addFieldsToPalette('tt_content', 'section_pallete', 'section_hash,section_title,section_sorting');
+ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--palette--;' . $llPath . ':tt_content.section_pallete;section_pallete', '', 'after:sectionIndex');
+ExtensionManagementUtility::addFieldsToPalette('tt_content', 'frames', 'frame_class');
 
 $GLOBALS['TCA']['tt_content']['columns']['CType']['config']['default'] = 'text';
 
@@ -120,4 +130,4 @@ $GLOBALS['TCA']['tt_content']['types']['image']['showitem'] = '
 --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended
 ';
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--palette--;;headers', 'form_formframework', 'replace:--palette--;;header');
+ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--palette--;;headers', 'form_formframework', 'replace:--palette--;;header');
