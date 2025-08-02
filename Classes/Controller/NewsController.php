@@ -15,7 +15,10 @@ use TYPO3\CMS\Frontend\Page\PageAccessFailureReasons;
 class NewsController extends \GeorgRinger\News\Controller\NewsController
 {
     /**
-     * @param int $currentPage
+     * Single view of a news record
+     *
+     * @param News $news news item
+     * @param int $currentPage current page for optional pagination
      */
     public function detailAction(?News $news = null, $currentPage = 1): ResponseInterface
     {
