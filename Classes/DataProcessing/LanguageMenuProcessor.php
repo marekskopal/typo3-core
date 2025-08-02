@@ -55,8 +55,8 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
             $newsParams = $request->getQueryParams()['tx_news_pi1'] ?? null;
             if (
                 $newsParams !== null
-                && $newsParams['action'] ?? null === 'detail'
-                && $newsParams['news'] ?? null > 0
+                && ($newsParams['action'] ?? null) === 'detail'
+                && ($newsParams['news'] ?? null) > 0
             ) {
                 $query = $newsRepository->createQuery();
                 $querySettings = $query->getQuerySettings();
