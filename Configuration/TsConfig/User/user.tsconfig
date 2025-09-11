@@ -10,3 +10,7 @@ admPanel {
     module.edit.forceDisplayIcons = 0
     hide = 0
 }
+
+options {
+    file_list.filesPerPage = 100
+}
