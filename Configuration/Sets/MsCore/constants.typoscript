@@ -2,84 +2,51 @@
 ### PAGE ###
 ############
 page {
-    theme {
-        # cat=omega setting/160/100; type=options[Default=default, Inverse=inverse]; label=Navigation Style
-        navigationstyle                 = default
-        # cat=omega setting/160/110; type=boolean; label=Breadcrumb: Enable to display the breadcrumb
-        breadcrumb                      = 1
-        copyright {
-            # cat=omega setting/160/120; type=boolean; label=Copyright: Enable to display the copyright
-            enable                      = 1
-            # cat=omega setting/160/121; type=string; label=Copyright Text
-            text                        = created by <a href="mailto:skopal.marek@gmail.com" target="_blank">Marek Skopal</a>
-        }
-        news {
-            list {
-                # cat=omega setting/170/100; type=options[Left=left, Center=center, Right=right]; label=Header Position
-                header_position         = left
-                # cat=omega setting/170/110; type=options[H1=1,H2=2,H3=3,H4=4,H5=5]; label=Header Layout
-                header_layout           = 2
-                # cat=omega setting/170/120; type=options[Above: center=0,Above: right=1,Above: left=2,Below: center=8,Below: right=9,Below: left=10,In text: right=17,In text: left=18,Beside Text: Right=25,Beside Text: Left=26]; label=Image Alignment
-                imageorient             = 25
-                # cat=omega setting/170/130; type=options[1=1,2=2,3=3,4=4,6=6]; label=Image Columns
-                imagecols               = 1
-                # cat=omega setting/170/170; label= Max Image Width: This indicates that maximum number of pixels (width) a block of images inserted as content is allowed to consume.
-                maxW                    = 1140
-                # cat=omega setting/170/180; type=int+; label= Max Image Width (Text): Same as above, but this is the maximum width when text is wrapped around an imageblock. Default is 50% of the normal Max Image Width.
-                maxWInText =
-            }
-            pagination {
-                # cat=omega setting/170/190; type=string; label=Max items per page
-                itemsperpage = 5
-            }
-        }
-    }
     templatePage {
-        # cat=omega setting/100/100; type=string; label=Layout Root Path: Path to layouts
+        # cat=plugin.tx_mscore; type=string; label=Layout Root Path: Path to layouts
         layoutRootPath                  = EXT:ms_web/Resources/Private/View/Page/Layouts/
-        # cat=omega setting/100/110; type=string; label=Partial Root Path: Path to partials
+        # cat=plugin.tx_mscore; type=string; label=Partial Root Path: Path to partials
         partialRootPath                 = EXT:ms_web/Resources/Private/View/Page/Partials/
-        # cat=omega setting/100/120; type=string; label=Template Root Path: Path to templates
+        # cat=plugin.tx_mscore; type=string; label=Template Root Path: Path to templates
         templateRootPath                = EXT:ms_web/Resources/Private/View/Page/Templates/
     }
     templatePageParts {
-        # cat=omega setting/100/100; type=string; label=Layout Root Path: Path to layouts
+        # cat=plugin.tx_mscore; type=string; label=Layout Root Path: Path to layouts
         layoutRootPath                  = EXT:ms_web/Resources/Private/View/PageParts/Layouts/
-        # cat=omega setting/100/110; type=string; label=Partial Root Path: Path to partials
+        # cat=plugin.tx_mscore; type=string; label=Partial Root Path: Path to partials
         partialRootPath                 = EXT:ms_web/Resources/Private/View/PageParts/Partials/
-        # cat=omega setting/100/120; type=string; label=Template Root Path: Path to templates
+        # cat=plugin.tx_mscore; type=string; label=Template Root Path: Path to templates
         templateRootPath                = EXT:ms_web/Resources/Private/View/PageParts/Templates/
     }
     includePath {
-        # cat=omega setting/130/100; type=string; label=Css Include Path: Path to css files
+        # cat=plugin.tx_mscore; type=string; label=Css Include Path: Path to css files
         css                             = EXT:ms_web/Resources/Public/Css/
-        # cat=omega setting/130/110; type=string; label=Icon Include Path: Path to css files
+        # cat=plugin.tx_mscore; type=string; label=Icon Include Path: Path to css files
         images                          = EXT:ms_web/Resources/Public/Images/
-        # cat=omega setting/130/120; type=string; label=JavaScript Include Path: Path to css files
+        # cat=plugin.tx_mscore; type=string; label=JavaScript Include Path: Path to css files
         javascript                      = EXT:ms_web/Resources/Public/Javascript/
     }
     meta {
-        # cat=omega setting/120/100; type=string; label=Description: Enter a short description of the page. It will be displayed in the result lists of most search engines.
+        # cat=plugin.tx_mscore; type=string; label=Description: Enter a short description of the page. It will be displayed in the result lists of most search engines.
         description                     =
-        # cat=omega setting/120/110; type=string; label=Author: Enter the page author's name.
+        # cat=plugin.tx_mscore; type=string; label=Author: Enter the page author's name.
         author                          = Marek Skopal
-        # cat=omega setting/120/110; type=string; label=Author: Enter the page author's name.
+        # cat=plugin.tx_mscore; type=string; label=Copyright
         copyright                       = Marek Skopal
-        # cat=omega setting/120/120; type=string; label=Keywords: Enter keywords for the page separated by commas. You may also use short phrases.
+        # cat=plugin.tx_mscore; type=string; label=Keywords: Enter keywords for the page separated by commas. You may also use short phrases.
         keywords                        =
-        # cat=omega setting/120/100; type=string; label=viewport
+        # cat=plugin.tx_mscore; type=string; label=viewport
         viewport                        = width=device-width, initial-scale=1
-        # cat=omega setting/120/110; type=string; label=robots
+        # cat=plugin.tx_mscore; type=string; label=robots
         robots                          = index,follow
-        # cat=omega setting/120/120; type=string; label=apple-mobile-web-app-capable
+        # cat=plugin.tx_mscore; type=string; label=apple-mobile-web-app-capable
         apple-mobile-web-app-capable    = no
-        # cat=omega setting/120/140; type=string; label=google
+        # cat=plugin.tx_mscore; type=string; label=google
         google                          = notranslate
-        # cat=omega setting/120/140; type=string; label=googlebot
+        # cat=plugin.tx_mscore; type=string; label=googlebot
         googlebot                       = snippet,archive
-        
     }
-    searchForm.pageId = 
+
     language {
         value = 0,1
         override = CZ || EN || DE
@@ -87,8 +54,12 @@ page {
     }
 
     logo {
-        # cat=omega setting/110/100; type=string; label=Cesta k obrazkovemu logu
+        # cat=plugin.tx_mscore; type=string; label=Logo path
         path = EXT:ms_web/Resources/Public/Images/Logo.svg
+    }
+
+    includeJS {
+        async = 1
     }
 }
 
@@ -97,16 +68,16 @@ page {
 ### CONFIG ###
 ##############
 config {
-    # cat=omega setting/150/100; type=boolean; label=BaseURL: This will override the default automatic BaseURL determination
-    baseURL             = 
-    # cat=omega setting/150/110; type=boolean; label=No Cache
+    # cat=plugin.tx_mscore; type=boolean; label=BaseURL: This will override the default automatic BaseURL determination
+    baseURL             =
+    # cat=plugin.tx_mscore; type=boolean; label=No Cache
     no_cache            = 0
-    # cat=omega setting/150/120; type=boolean; label=Compress JavaScript
+    # cat=plugin.tx_mscore; type=boolean; label=Compress JavaScript
     compressJs          = 1
-    # cat=omega setting/150/130; type=boolean; label=Compress Css
+    # cat=plugin.tx_mscore; type=boolean; label=Compress Css
     compressCss         = 1
-    # cat=omega setting/150/140; type=boolean; label=Concatenate JavaScript
+    # cat=plugin.tx_mscore; type=boolean; label=Concatenate JavaScript
     concatenateJs       = 1
-    # cat=omega setting/150/150; type=boolean; label=Concatenate Css
+    # cat=plugin.tx_mscore; type=boolean; label=Concatenate Css
     concatenateCss      = 1
 }

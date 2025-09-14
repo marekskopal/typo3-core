@@ -228,14 +228,20 @@ lib.parseFunc_RTE {
 
 page.includeJSFooterlibs {
     jquery = EXT:ms_core/Resources/Public/Javascript/jquery-4.0.0.min.js
+    jquery.async = {$page.includeJS.async}
     popperjs = EXT:ms_core/Resources/Public/Javascript/popper.min.js
+    popperjs.async = {$page.includeJS.async}
     bootstrap = EXT:ms_core/Resources/Public/Javascript/bootstrap.min.js
+    bootstrap.async = {$page.includeJS.async}
     lightGallery = EXT:ms_core/Resources/Public/Javascript/lightGallery/js/lightgallery-all.min.js
+    lightGallery.async = {$page.includeJS.async}
 }
 
 page.includeJSFooter {
     msGallery = EXT:ms_core/Resources/Public/Javascript/ms-gallery.js
+    msGallery.async = {$page.includeJS.async}
     main = {$page.includePath.javascript}main.js
+    main.async = {$page.includeJS.async}
 }
 
 ##############
