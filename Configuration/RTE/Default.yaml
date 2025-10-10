@@ -1,8 +1,8 @@
 # Load default processing options
 imports:
-    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Processing.yaml' }
-    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml' }
-    - { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml' }
+    - { resource: "EXT:ms_core/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:ms_core/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:ms_core/Configuration/RTE/Editor/Plugins.yaml" }
     - { resource: "EXT:rte_ckeditor_image/Configuration/RTE/Plugin.yaml" }
     #- { resource: 'EXT:rte_ckeditor/Configuration/RTE/Editor/LinkBrowser.yaml' }
 # Additional optional TYPO3 specific configuration is available via ./Editor/LinkBrowser.yaml
