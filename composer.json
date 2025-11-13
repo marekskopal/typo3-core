@@ -15,7 +15,7 @@
     ],
     "license": ["GPL-2.0-or-later"],
     "require": {
-        "georgringer/news": "^12.2.0",
+        "georgringer/news": "^13.0.0",
         "georgringer/numbered-pagination": "^2.1",
         "netresearch/rte-ckeditor-image": "^13.0",
         "tpwd/ke_search": "^6.0",
