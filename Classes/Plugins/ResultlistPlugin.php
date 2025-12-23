@@ -6,9 +6,9 @@ namespace Skopal\MsCore\Plugins;
 
 class ResultlistPlugin extends \Tpwd\KeSearch\Plugins\ResultlistPlugin
 {
-    public function initFluidTemplate(): void
+    public function getSearchResults(): void
     {
-        parent::initFluidTemplate();
+        parent::getSearchResults();
 
         $this->getSearchboxContent();
     }
