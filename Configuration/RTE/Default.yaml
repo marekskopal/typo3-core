@@ -43,7 +43,7 @@ editor:
         - '|'
         - insertTable
         - '|'
-        - insertImage
+        - insertimage
         - '|'
         - specialCharacters
         - horizontalLine
