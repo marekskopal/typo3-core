@@ -17,12 +17,12 @@
     "require": {
         "georgringer/news": "^14.0.0",
         "georgringer/numbered-pagination": "^2.1",
-        "netresearch/rte-ckeditor-image": "^13.1",
+        "netresearch/rte-ckeditor-image": "dev-main",
         "tpwd/ke_search": "^7.0",
-        "typo3/cms-backend": "^13.4",
-        "typo3/cms-core": "^13.4",
-        "typo3/cms-fluid-styled-content": "^13.4",
-        "typo3/cms-rte-ckeditor": "^13.4"
+        "typo3/cms-backend": "^14.0",
+        "typo3/cms-core": "^14.0",
+        "typo3/cms-fluid-styled-content": "^14.0",
+        "typo3/cms-rte-ckeditor": "^14.0"
     },
     "autoload": {
         "psr-4": {
