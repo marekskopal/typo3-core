@@ -17,7 +17,7 @@
     "require": {
         "georgringer/news": "^14.0.0",
         "georgringer/numbered-pagination": "^2.1",
-        "netresearch/rte-ckeditor-image": "dev-main",
+        "netresearch/rte-ckeditor-image": "^13.2",
         "tpwd/ke_search": "^7.0",
         "typo3/cms-backend": "^14.0",
         "typo3/cms-core": "^14.0",
