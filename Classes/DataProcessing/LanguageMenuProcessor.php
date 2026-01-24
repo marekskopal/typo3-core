@@ -67,7 +67,10 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
                 ));
                 $news = $query->matching(
                     $query->logicalAnd(
-                        $query->equals('uid', $newsParams['news']),
+                        $query->logicalOr(
+                            $query->equals('uid', $newsParams['news']),
+                            $query->equals('l10n_parent', $newsParams['news']),
+                        ),
                         $query->equals('deleted', 0)
                     )
                 )->execute()->getFirst();
