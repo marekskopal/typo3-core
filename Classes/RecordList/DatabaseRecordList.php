@@ -12,7 +12,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class DatabaseRecordList extends \TYPO3\CMS\Backend\RecordList\DatabaseRecordList
 {
-    protected function createActionButtonNewRecord(string $table): ?ButtonInterface
+    public function createActionButtonNewRecord(string $table): ?ButtonInterface
     {
         if (!$this->isEditable($table)) {
             return null;
