@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace Skopal\MsCore\RecordList;
 
 use TYPO3\CMS\Backend\Template\Components\Buttons\ButtonInterface;
-use TYPO3\CMS\Backend\Template\Components\Buttons\GenericButton;
 use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Type\Bitmask\Permission;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class DatabaseRecordList extends \TYPO3\CMS\Backend\RecordList\DatabaseRecordList
 {
-    protected function createActionButtonNewRecord(string $table): ?ButtonInterface
+    public function createActionButtonNewRecord(string $table): ?ButtonInterface
     {
         if (!$this->isEditable($table)) {
             return null;
@@ -25,25 +23,28 @@ class DatabaseRecordList extends \TYPO3\CMS\Backend\RecordList\DatabaseRecordLis
             return null;
         }
 
-        $tag = 'a';
-        $iconIdentifier = 'actions-plus';
         $label = sprintf(
             $this->getLanguageService()->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:newRecordOfType'),
-            $this->getLanguageService()->sL($GLOBALS['TCA'][$table]['ctrl']['title'])
+            $this->tcaSchemaFactory->get($table)->getTitle($this->getLanguageService()->sL(...)),
         );
-        $attributes = [
-            'data-recordlist-action' => 'new',
+        $dataAttributes = [
+            'recordlist-action' => 'new',
         ];
 
+        $button = $this->componentFactory->createLinkButton()
+            ->setTitle($label)
+            ->setShowLabelText(true);
+
         if ($table === 'pages') {
-            $iconIdentifier = 'actions-page-new';
-            $attributes['data-new'] = 'page';
-            $attributes['href'] = (string)$this->uriBuilder->buildUriFromRoute(
+            $button->setIcon($this->iconFactory->getIcon('actions-page-new', IconSize::SMALL));
+            $button->setHref((string)$this->uriBuilder->buildUriFromRoute(
                 'db_new_pages',
                 ['id' => $this->id, 'returnUrl' => $this->listURL()]
-            );
+            ));
+            $dataAttributes['new'] = 'page';
         } else {
-            $attributes['href'] = $this->uriBuilder->buildUriFromRoute(
+            $button->setIcon($this->iconFactory->getIcon('actions-plus', IconSize::SMALL));
+            $button->setHref((string)$this->uriBuilder->buildUriFromRoute(
                 'record_edit',
                 [
                     'edit' => [
@@ -51,18 +52,12 @@ class DatabaseRecordList extends \TYPO3\CMS\Backend\RecordList\DatabaseRecordLis
                             $this->id => 'new',
                         ],
                     ],
+                    'module' => $this->request->getAttribute('module')?->getIdentifier() ?? '',
                     'returnUrl' => $this->listURL(),
                 ]
-            );
+            ));
         }
 
-        $button = GeneralUtility::makeInstance(GenericButton::class);
-        $button->setTag($tag);
-        $button->setLabel($label);
-        $button->setShowLabelText(true);
-        $button->setIcon($this->iconFactory->getIcon($iconIdentifier, IconSize::SMALL));
-        $button->setAttributes($attributes);
-
-        return $button;
+        return $button->setDataAttributes($dataAttributes);
     }
 }
