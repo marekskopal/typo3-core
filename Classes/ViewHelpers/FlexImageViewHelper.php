@@ -33,6 +33,10 @@ class FlexImageViewHelper extends AbstractViewHelper
          */
         $image = $this->arguments[self::ARGUMENT_IMAGE];
 
+        if ($image['dimensions']['height'] === 0) {
+            return '';
+        }
+
         $aspectRatio = ($image['dimensions']['width']) / $image['dimensions']['height'];
 
         return 'flex:' . $aspectRatio . ';';
