@@ -54,8 +54,12 @@ page {
     }
 
     logo {
-        # cat=plugin.tx_mscore; type=string; label=Logo path
-        path = EXT:ms_web/Resources/Public/Images/Logo.svg
+        # cat=plugin.tx_mscore; type=string; label=Logo file
+        file = EXT:ms_web/Resources/Public/Images/Logo.svg
+        # cat=plugin.tx_mscore; type=string; label=Logo height
+        height =
+        # cat=plugin.tx_mscore; type=string; label=Logo width
+        width =
     }
 
     includeJS {
