@@ -329,13 +329,8 @@ page {
 ################
 config {
     no_cache = {$config.no_cache}
-    uniqueLinkVars = 1
     pageTitleFirst = 1
     linkVars = L
-    renderCharset = utf-8
-    metaCharset = utf-8
-    doctype = html5
-    inlineStyle2TempFile = 1
     admPanel = 0
     contentObjectExceptionHandler = 0
     debug = 0
@@ -351,16 +346,11 @@ config {
     headerComment (
         created by Marek Skopal
     )
-    simulateStaticDocuments = 0
     absRefPrefix = auto
-    frontend_editing = 0
     noScaleUp = 1
-    sys_language_overlay = 0
     spamProtectEmailAddresses = 1
     spamProtectEmailAddresses_atSubst = @
     spamProtectEmailAddresses_lastDotSubst = .<span class="hidden">.</span>
-    removeDefaultCss = 1
-    removeDefaultJS = external
 }
 
 [applicationContext == "Development"]
