@@ -72,12 +72,4 @@ config {
     baseURL             =
     # cat=plugin.tx_mscore; type=boolean; label=No Cache
     no_cache            = 0
-    # cat=plugin.tx_mscore; type=boolean; label=Compress JavaScript
-    compressJs          = 1
-    # cat=plugin.tx_mscore; type=boolean; label=Compress Css
-    compressCss         = 1
-    # cat=plugin.tx_mscore; type=boolean; label=Concatenate JavaScript
-    concatenateJs       = 1
-    # cat=plugin.tx_mscore; type=boolean; label=Concatenate Css
-    concatenateCss      = 1
 }
