@@ -62,6 +62,17 @@ page {
         width =
     }
 
+    theme {
+        # cat=plugin.tx_mscore; type=string; label=Navigation style
+        navigationstyle =
+        copyright {
+            # cat=plugin.tx_mscore; type=boolean; label=Enable copyright
+            enable = 0
+            # cat=plugin.tx_mscore; type=string; label=Copyright text
+            text =
+        }
+    }
+
     includeJS {
         async = 1
     }
