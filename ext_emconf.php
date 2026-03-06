@@ -25,9 +25,9 @@ $EM_CONF[$_EXTKEY] = [
     'CGLcompliance_note' => '',
     'constraints' => [
         'depends' => [
-            'typo3' => '13.4.0',
-            'fluid_styled_content' => '13.4.0',
-            'rte_ckeditor_image' => '13.4.0'
+            'typo3' => '14.1.0',
+            'fluid_styled_content' => '14.1.0',
+            'rte_ckeditor_image' => '14.1.0'
         ],
         'conflicts' =>[
         ],
