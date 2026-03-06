@@ -198,11 +198,6 @@ lib.parseFunc {
     nonTypoTagStdWrap >
     tags.link.typolink.target >
     allowTags = small,code,table, tbody, tfoot, thead, tr, th, td, col, h1, h2, h3, h4, h5, h6, div, p, br, font, span, ul, ol, li, pre, blockquote, strong, em, b, i, u, sub, sup, strike, a, link, img, nobr, hr, tt, q, cite, abbr, acronym, address, iframe, object, embed, param, map, area, article, header, footer, section
-    tags.img = TEXT
-    tags.img {
-        current = 1
-        preUserFunc = Skopal\MsCore\Controller\ImageRenderingController->renderImageAttributes
-    }
 }
 
 lib.parseFunc_RTE {
@@ -212,11 +207,6 @@ lib.parseFunc_RTE {
     externalBlocks.table.stdWrap.HTMLparser.tags.table.fixAttrib.class {
         default = table
         list = table table-striped
-    }
-    tags.img = TEXT
-    tags.img {
-        current = 1
-        preUserFunc = Skopal\MsCore\Controller\ImageRenderingController->renderImageAttributes
     }
 }
 
