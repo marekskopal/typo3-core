@@ -153,8 +153,6 @@ lib.language {
                         additionalParams.insertData = 1
                         addQueryString = 1
                         addQueryString.exclude = L,id,cHash,no_cache
-                        addQueryString.method = GET
-                        useCacheHash = 1
                         no_cache = 0
                     }
                 }
