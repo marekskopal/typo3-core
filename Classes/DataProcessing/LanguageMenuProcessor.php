@@ -45,14 +45,8 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
                 continue;
             }
 
-            /** @var \TYPO3\CMS\Core\Http\ServerRequest|null $request */
-            $request = $GLOBALS['TYPO3_REQUEST'] ?? null;
-            if ($request === null) {
-                continue;
-            }
-
             /** @var array{action?: string, news?: int}|null $newsParams */
-            $newsParams = $request->getQueryParams()['tx_news_pi1'] ?? null;
+            $newsParams = $cObj->getRequest()->getQueryParams()['tx_news_pi1'] ?? null;
             if (
                 $newsParams !== null
                 && ($newsParams['action'] ?? null) === 'detail'
