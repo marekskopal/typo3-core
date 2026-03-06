@@ -16,30 +16,17 @@
 										<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
 									</div>
 								</f:case>
-								<f:case value="2">
+								<f:defaultCase>
 									<div class="col px-2" style="{ms:flexImage(row:row.columns, image:column)}">
 										<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
 									</div>
-								</f:case>
-								<f:case value="3">
-									<div class="col px-2" style="{ms:flexImage(row:row.columns, image:column)}">
-										<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
-									</div>
-								</f:case>
-								<f:case value="4">
-									<div class="col px-2" style="{ms:flexImage(row:row.columns, image:column)}">
-										<f:render partial="Media/Type" arguments="{file: column.media, dimensions: column.dimensions, data: data, settings: settings}" />
-									</div>
-								</f:case>
+								</f:defaultCase>
 							</f:switch>
 						</f:if>
 					</f:for>
 				</div>
 			</f:for>
 		</div>
-		<div class="visible-xs d-block d-sm-none"></div>
-		<div class="visible-sm d-none d-sm-block d-md-none"></div>
-		<div class="visible-md d-none d-md-block"></div>
 	</div>
 </f:if>
 </html>
