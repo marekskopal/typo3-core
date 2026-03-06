@@ -8,7 +8,6 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class FlexImageViewHelper extends AbstractViewHelper
 {
-    protected const ARGUMENT_ROW = 'row';
     protected const ARGUMENT_IMAGE = 'image';
 
     /** @var bool */
@@ -17,7 +16,6 @@ class FlexImageViewHelper extends AbstractViewHelper
     public function initializeArguments(): void
     {
         parent::initializeArguments();
-        $this->registerArgument(self::ARGUMENT_ROW, 'array', 'Row');
         $this->registerArgument(self::ARGUMENT_IMAGE, 'array', 'Image');
     }
 
