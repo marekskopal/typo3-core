@@ -6,20 +6,11 @@ namespace Skopal\MsCore\DataProcessing;
 
 use GeorgRinger\News\Domain\Repository\NewsRepository;
 use TYPO3\CMS\Core\Context\LanguageAspect;
-use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectFactory;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
 {
-    public function __construct(
-        private readonly NewsRepository $newsRepository,
-        ContentDataProcessor $contentDataProcessor,
-        ContentObjectFactory $contentObjectFactory,
-    ) {
-        parent::__construct($contentDataProcessor, $contentObjectFactory);
-    }
-
     /**
      * @param ContentObjectRenderer $cObj The data of the content element or page
      * @param array<mixed> $contentObjectConfiguration The configuration of Content Object
@@ -38,6 +29,8 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
         $parentProcessedData = parent::process($cObj, $contentObjectConfiguration, $processorConfiguration, $processedData);
 
         $menuTargetVariableName = $this->getConfigurationValue('as');
+
+        $newsRepository = GeneralUtility::makeInstance(NewsRepository::class);
 
         $languages = [];
 
@@ -59,7 +52,7 @@ class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageM
                 && ($newsParams['action'] ?? null) === 'detail'
                 && ($newsParams['news'] ?? null) > 0
             ) {
-                $query = $this->newsRepository->createQuery();
+                $query = $newsRepository->createQuery();
                 $querySettings = $query->getQuerySettings();
                 $querySettings->setRespectStoragePage(false);
                 $querySettings->setLanguageAspect(new LanguageAspect(
