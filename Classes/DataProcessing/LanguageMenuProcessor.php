@@ -6,13 +6,18 @@ namespace Skopal\MsCore\DataProcessing;
 
 use GeorgRinger\News\Domain\Repository\NewsRepository;
 use TYPO3\CMS\Core\Context\LanguageAspect;
+use TYPO3\CMS\Frontend\ContentObject\ContentDataProcessor;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectFactory;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
 class LanguageMenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
 {
-    public function __construct(private readonly NewsRepository $newsRepository)
-    {
-        parent::__construct();
+    public function __construct(
+        private readonly NewsRepository $newsRepository,
+        ContentDataProcessor $contentDataProcessor,
+        ContentObjectFactory $contentObjectFactory,
+    ) {
+        parent::__construct($contentDataProcessor, $contentObjectFactory);
     }
 
     /**
