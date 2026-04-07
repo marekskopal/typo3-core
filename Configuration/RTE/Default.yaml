@@ -47,6 +47,7 @@ editor:
         - '|'
         - specialCharacters
         - horizontalLine
+        - codeBlock
         - sourceEditing
 
     heading:
