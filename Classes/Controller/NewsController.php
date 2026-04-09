@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Skopal\MsCore\Controller;
 
 use GeorgRinger\News\Domain\Model\News;
+use GeorgRinger\News\Domain\Repository\CategoryRepository;
+use GeorgRinger\News\Domain\Repository\NewsRepository;
+use GeorgRinger\News\Domain\Repository\TagRepository;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\LanguageAspect;
 use Psr\Http\Message\ResponseInterface;
@@ -14,10 +17,13 @@ use TYPO3\CMS\Frontend\Page\PageAccessFailureReasons;
 class NewsController extends \GeorgRinger\News\Controller\NewsController
 {
     public function __construct(
+        NewsRepository $newsRepository,
+        CategoryRepository $categoryRepository,
+        TagRepository $tagRepository,
         private readonly Context $context,
         private readonly ErrorController $errorController,
     ) {
-        parent::__construct();
+        parent::__construct($newsRepository, $categoryRepository, $tagRepository);
     }
 
     /**
